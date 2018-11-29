@@ -34,4 +34,15 @@
 
 * mixed filter_input ( int $type , string $variable_name [, int $filter = FILTER_DEFAULT [, mixed $options ]] )
 
+* Prepared statements are important to use when accepting and offer two major benefits:
+    
+    1) Properly escapes the variables so that no SQL Injection will occur.
 
+    2) They only need to be parsed or prepared once but can be executed multiple times with the same or different parameters. This means a prepared statement has fewer resources and run faster. 
+
+* Preparing statements is a 3 step process.
+    
+    1) Prepare the query e.g.) $results = $db->prepare($sql);
+    
+    2) Bind parameters or values e.g.) $results->bindValue(1, $title, PDO::PARAM_STR);  1st arg references the first ?  2nd arg references the variable we want to bind   3rd arg is the data type we want for the parameter.
+    3) Execute the query / statement e.g.) $results->execute();

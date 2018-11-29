@@ -13,8 +13,16 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     if(empty($title) || empty($category)) {
         $error_msg = "Please complete all required fields: Title, Category";
     } else {
-        echo "Title: $title <BR>";
-        echo "Category: $category <BR>";
+        // echo "Title: $title <BR>";
+        // echo "Category: $category <BR>";
+        if(add_project($title, $category)) {
+            // Redirect to  project page
+            header('Location: project_list.php');
+            // Make sure the execution of the current script is stopped.
+            exit;
+        } else {
+            $error_msg = 'Could not add project!';
+        }
     }
 }
 
