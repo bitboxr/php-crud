@@ -34,10 +34,10 @@ include 'inc/header.php';
         <div class="col col-70-md col-60-lg col-center">
             <h1 class="actions-header">Add Project</h1>
             <?php
-                    if(isset($error_msg)) {
-                        echo "<p class='message'>" . $error_msg . "</p>";
-                    }
-                ?>
+                if(isset($error_msg)) {
+                    echo "<p class='message'>" . $error_msg . "</p>";
+                }
+            ?>
             <form class="form-container form-add" method="post" action="project.php">
                 <table>
                     <tr>
