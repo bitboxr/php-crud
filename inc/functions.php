@@ -12,6 +12,24 @@ function get_project_list() {
     }    
 }
 
+
+function get_task_list() {
+    include 'connection.php';
+
+    // IMPORTANT: Each new line MUST begin with empty space to separate words. e.g.) Tasks JOIN instead of TasksJOIN
+    $sql = 'SELECT Tasks.*, Projects.title AS project FROM Tasks'
+        . ' JOIN Projects ON'
+        . ' Projects.project_id = Tasks.project_id';
+
+    try {
+        return $db->query($sql);
+    } catch (PDOException $e) {
+        echo "Error!: " . $e->getMessage() . "<BR>";
+        return false;
+    }    
+}
+
+
 function add_project($title, $category) {
     include 'connection.php';
 

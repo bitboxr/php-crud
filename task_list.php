@@ -21,8 +21,13 @@ include 'inc/header.php';
             </div>
 
             <div class="form-container">
-              <ul class="items">
-              </ul>
+                <ul class="items">
+                    <?php
+                        foreach(get_task_list() as $item) {
+                            echo "<li>" . $item['title'] . "</li>";
+                        }
+                    ?>
+                </ul>
             </div>
 
         </div>
