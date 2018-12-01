@@ -46,3 +46,13 @@
     
     2) Bind parameters or values e.g.) $results->bindValue(1, $title, PDO::PARAM_STR);  1st arg references the first ?  2nd arg references the variable we want to bind   3rd arg is the data type we want for the parameter.
     3) Execute the query / statement e.g.) $results->execute();
+
+* Output should be escaped whenever you output user data to prevent malicous from being introduced.
+* htmlspecialchars($var_name) escapes output by converting special characters to HTML entities.
+
+```
+Example: 
+$new = htmlspecialchars("<a href='test'>Test</a>", ENT_QUOTES);
+echo $new; // &lt;a href=&#039;test&#039;&gt;Test&lt;/a&gt;  // converted to special characters
+
+```

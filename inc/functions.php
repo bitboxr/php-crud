@@ -1,5 +1,5 @@
 <?php
-//application functions
+// application functions
 
 function get_project_list() {
     include 'connection.php';
